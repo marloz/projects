@@ -4,10 +4,8 @@ title: About Me
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+"I interface with my database, my database is in cyberspace, so I’m interactive, I’m hyperactive and from time to time I’m radioactive."
+- George Carlin
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+Pretty much sums it up.
 
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
