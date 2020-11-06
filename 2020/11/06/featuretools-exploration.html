@@ -1,0 +1,2708 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Data overview | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Data overview" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://marloz.github.io/projects/2020/11/06/featuretools-exploration.html" />
+<meta property="og:url" content="https://marloz.github.io/projects/2020/11/06/featuretools-exploration.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-06T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","headline":"Data overview","@type":"BlogPosting","dateModified":"2020-11-06T00:00:00-06:00","datePublished":"2020-11-06T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://marloz.github.io/projects/2020/11/06/featuretools-exploration.html"},"url":"https://marloz.github.io/projects/2020/11/06/featuretools-exploration.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/projects/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://marloz.github.io/projects/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/projects/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Data overview | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Data overview" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://marloz.github.io/projects/2020/11/06/featuretools-exploration.html" />
+<meta property="og:url" content="https://marloz.github.io/projects/2020/11/06/featuretools-exploration.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-06T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","headline":"Data overview","@type":"BlogPosting","dateModified":"2020-11-06T00:00:00-06:00","datePublished":"2020-11-06T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://marloz.github.io/projects/2020/11/06/featuretools-exploration.html"},"url":"https://marloz.github.io/projects/2020/11/06/featuretools-exploration.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://marloz.github.io/projects/feed.xml" title="fastpages" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    // remove paragraph tags in rendered toc (happens from notebooks)
+    var toctags = document.querySelectorAll(".toc-entry")
+    toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/projects/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects/about/">About Me</a><a class="page-link" href="/projects/search/">Search</a><a class="page-link" href="/projects/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Data overview</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-06T00:00:00-06:00" itemprop="datePublished">
+        Nov 6, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      14 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/marloz/projects/tree/master/_notebooks/2020-11-06-featuretools-exploration.ipynb" role="button">
+<img class="notebook-badge-image" src="/projects/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div><div class="px-2">
+    <a href="https://colab.research.google.com/github/marloz/projects/blob/master/_notebooks/2020-11-06-featuretools-exploration.ipynb">
+        <img class="notebook-badge-image" src="/projects/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-11-06-featuretools-exploration.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pandas and numpy for data manipulation</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># featuretools for automated feature engineering</span>
+<span class="c1"># !pip install featuretools --upgrade</span>
+<span class="kn">import</span> <span class="nn">featuretools</span> <span class="k">as</span> <span class="nn">ft</span>
+
+<span class="c1"># matplotlit and seaborn for visualizations</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pylab</span>
+<span class="n">pylab</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">pylab</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Suppress warnings from pandas</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This notebook explores <a href="https://featuretools.alteryx.com/en/stable/#">featuretools</a> library for automated feature engineering.<br />
+I will use Kaggle's <a href="https://www.kaggle.com/c/home-credit-default-risk/">home credit default risk</a> dataset, which has just the right structure for this task.<br />
+Thanks to <a href="https://www.kaggle.com/willkoehrsen">Will Koehrsen</a> for awesome walkthroughs and explanations of this package.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://storage.googleapis.com/kaggle-media/competitions/home-credit/home_credit.png" alt="image" /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Application-data">Application data<a class="anchor-link" href="#Application-data"> </a></h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Utility to quickly inspect data</span>
+<span class="k">def</span> <span class="nf">inspect_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;df shape: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;_____________________&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;datatypes: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;_____________________&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Num null vals: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;_____________________&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">target_col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">target_col</span><span class="si">}</span><span class="s1"> classes: </span><span class="se">\n</span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;_____________________&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Application data is of considerable size both in terms of rows and columns, has mixed data types, some missing values and inbalanced target classes.<br />
+Since automated feature generation is quite resource intensive process, we need to downsample, preprocess and reduce dimensionality before creating more features.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../input/home-credit-default-risk/application_train.csv&#39;</span><span class="p">)</span>
+<span class="n">inspect_df</span><span class="p">(</span><span class="n">app_df</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;TARGET&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>df shape: (307511, 122)
+_____________________
+datatypes: float64    65
+int64      41
+object     16
+dtype: int64
+_____________________
+Num null vals: 9152465
+_____________________
+TARGET classes: 
+0    282686
+1     24825
+Name: TARGET, dtype: int64
+_____________________
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_CURR</th>
+      <th>TARGET</th>
+      <th>NAME_CONTRACT_TYPE</th>
+      <th>CODE_GENDER</th>
+      <th>FLAG_OWN_CAR</th>
+      <th>FLAG_OWN_REALTY</th>
+      <th>CNT_CHILDREN</th>
+      <th>AMT_INCOME_TOTAL</th>
+      <th>AMT_CREDIT</th>
+      <th>AMT_ANNUITY</th>
+      <th>...</th>
+      <th>FLAG_DOCUMENT_18</th>
+      <th>FLAG_DOCUMENT_19</th>
+      <th>FLAG_DOCUMENT_20</th>
+      <th>FLAG_DOCUMENT_21</th>
+      <th>AMT_REQ_CREDIT_BUREAU_HOUR</th>
+      <th>AMT_REQ_CREDIT_BUREAU_DAY</th>
+      <th>AMT_REQ_CREDIT_BUREAU_WEEK</th>
+      <th>AMT_REQ_CREDIT_BUREAU_MON</th>
+      <th>AMT_REQ_CREDIT_BUREAU_QRT</th>
+      <th>AMT_REQ_CREDIT_BUREAU_YEAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100002</td>
+      <td>1</td>
+      <td>Cash loans</td>
+      <td>M</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>202500.0</td>
+      <td>406597.5</td>
+      <td>24700.5</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100003</td>
+      <td>0</td>
+      <td>Cash loans</td>
+      <td>F</td>
+      <td>N</td>
+      <td>N</td>
+      <td>0</td>
+      <td>270000.0</td>
+      <td>1293502.5</td>
+      <td>35698.5</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>100004</td>
+      <td>0</td>
+      <td>Revolving loans</td>
+      <td>M</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>67500.0</td>
+      <td>135000.0</td>
+      <td>6750.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>100006</td>
+      <td>0</td>
+      <td>Cash loans</td>
+      <td>F</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>135000.0</td>
+      <td>312682.5</td>
+      <td>29686.5</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100007</td>
+      <td>0</td>
+      <td>Cash loans</td>
+      <td>M</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>121500.0</td>
+      <td>513000.0</td>
+      <td>21865.5</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 122 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Balance-target-classes">Balance target classes<a class="anchor-link" href="#Balance-target-classes"> </a></h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Downsample majority class to have same number of rows as minority class</span>
+<span class="k">def</span> <span class="nf">balance_target</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">positive_class</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+    <span class="n">positive_idx</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span> <span class="o">==</span> <span class="n">positive_class</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+    <span class="n">negative_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">positive_idx</span><span class="p">)]</span>
+                    <span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">positive_idx</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">))</span><span class="o">.</span><span class="n">index</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">positive_idx</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">negative_idx</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Reduction from 300k rows to 50k should speed up exploration and since classes are balanced, shouldn&#39;t affect the accuracy too much.</span>
+<span class="n">app_df_sample</span> <span class="o">=</span> <span class="n">balance_target</span><span class="p">(</span><span class="n">app_df</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;TARGET&#39;</span><span class="p">)</span>
+<span class="n">app_df_sample</span><span class="o">.</span><span class="n">TARGET</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1    24825
+0    24825
+Name: TARGET, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Preprocessing">Preprocessing<a class="anchor-link" href="#Preprocessing"> </a></h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Splitter into features and target</span>
+<span class="k">def</span> <span class="nf">split_x_y</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_col</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target_col</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">df</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Create a data preparator that:</p>
+<ul>
+<li>separates id columns</li>
+<li>splits features into categorical and numerical</li>
+<li>fills in missing values</li>
+<li>factorizes categories (numerical encoding)</li>
+<li>reduces float precision of numericals for faster processing</li>
+<li>adds random features as benchmark for feature selection later</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">DataPreparator</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_cols</span><span class="p">,</span> <span class="n">add_rand_cols</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id_cols</span> <span class="o">=</span> <span class="n">id_cols</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_rand_cols</span> <span class="o">=</span> <span class="n">add_rand_cols</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">prepare_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                     <span class="n">X</span><span class="p">,</span>
+                     <span class="n">cat_fill_val</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> 
+                     <span class="n">cat_trans_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+                     <span class="n">cat_rand_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                     <span class="n">num_fill_val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                     <span class="n">num_trans_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">),</span>
+                     <span class="n">num_rand_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+        <span class="n">ids</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">id_cols</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_cols</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">X_cat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preprocess</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">cat_fill_val</span><span class="p">,</span> <span class="n">cat_trans_func</span><span class="p">,</span> <span class="n">cat_rand_func</span><span class="p">)</span>
+        <span class="n">X_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preprocess</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="n">num_fill_val</span><span class="p">,</span> <span class="n">num_trans_func</span><span class="p">,</span> <span class="n">num_rand_func</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ids</span><span class="p">,</span> <span class="n">X_cat</span><span class="p">,</span> <span class="n">X_num</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">dtypes</span><span class="p">,</span> <span class="n">fill_val</span><span class="p">,</span> <span class="n">trans_func</span><span class="p">,</span> <span class="n">rand_func</span><span class="p">):</span>
+        <span class="n">X_proc</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">dtypes</span><span class="p">)</span>
+                    <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">fill_val</span><span class="p">)</span>
+                    <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">trans_func</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">X_proc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">X_proc</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="sa">f</span><span class="s1">&#39;rand_</span><span class="si">{</span><span class="n">dtypes</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="n">rand_func</span><span class="p">})</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_rand_cols</span> <span class="k">else</span> <span class="n">X_proc</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app_df_feat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">split_x_y</span><span class="p">(</span><span class="n">app_df_sample</span><span class="p">,</span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;TARGET&#39;</span><span class="p">)</span>
+<span class="n">app_df_proc</span> <span class="o">=</span> <span class="n">DataPreparator</span><span class="p">(</span><span class="n">id_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">],</span> <span class="n">add_rand_cols</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">prepare_data</span><span class="p">(</span><span class="n">app_df_feat</span><span class="p">)</span>
+<span class="n">inspect_df</span><span class="p">(</span><span class="n">app_df_proc</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>df shape: (49650, 123)
+_____________________
+datatypes: float32    104
+int64       18
+float64      1
+dtype: int64
+_____________________
+Num null vals: 0
+_____________________
+_____________________
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_CURR</th>
+      <th>NAME_CONTRACT_TYPE</th>
+      <th>CODE_GENDER</th>
+      <th>FLAG_OWN_CAR</th>
+      <th>FLAG_OWN_REALTY</th>
+      <th>NAME_TYPE_SUITE</th>
+      <th>NAME_INCOME_TYPE</th>
+      <th>NAME_EDUCATION_TYPE</th>
+      <th>NAME_FAMILY_STATUS</th>
+      <th>NAME_HOUSING_TYPE</th>
+      <th>...</th>
+      <th>FLAG_DOCUMENT_19</th>
+      <th>FLAG_DOCUMENT_20</th>
+      <th>FLAG_DOCUMENT_21</th>
+      <th>AMT_REQ_CREDIT_BUREAU_HOUR</th>
+      <th>AMT_REQ_CREDIT_BUREAU_DAY</th>
+      <th>AMT_REQ_CREDIT_BUREAU_WEEK</th>
+      <th>AMT_REQ_CREDIT_BUREAU_MON</th>
+      <th>AMT_REQ_CREDIT_BUREAU_QRT</th>
+      <th>AMT_REQ_CREDIT_BUREAU_YEAR</th>
+      <th>rand_number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100002</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.319204</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>100010</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.431163</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>100017</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.052360</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>100021</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.992538</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>100030</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.507610</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 123 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Inspection shows that no rows are lost, all missing values are filled and all columns are numeric</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reduce-number-of-features">Reduce number of features<a class="anchor-link" href="#Reduce-number-of-features"> </a></h2><p>The idea here is to fit simple model with in-built feature importances (Random Forest) and drop all columns that have lower significance than random columns added in preparation step.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="k">class</span> <span class="nc">FeatureSelector</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">id_cols</span><span class="p">,</span> <span class="n">rand_cols</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id_cols</span> <span class="o">=</span> <span class="n">id_cols</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rand_cols</span> <span class="o">=</span> <span class="n">rand_cols</span>
+
+    <span class="k">def</span> <span class="nf">select_important_features</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">oob_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+        <span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Model score with full feature set </span><span class="si">{</span><span class="n">rf</span><span class="o">.</span><span class="n">oob_score_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">important_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_important_cols</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">important_cols</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Model score with reduced feature set </span><span class="si">{</span><span class="n">rf</span><span class="o">.</span><span class="n">oob_score_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">id_cols</span> <span class="o">+</span> <span class="n">important_cols</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_important_cols</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">column_names</span><span class="p">):</span>
+        <span class="n">importances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
+        <span class="n">rand_importance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">importances</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">importances</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rand_cols</span><span class="p">)])</span>
+        <span class="n">important_cols</span> <span class="o">=</span> <span class="n">importances</span><span class="p">[</span><span class="n">importances</span> <span class="o">&gt;</span> <span class="n">rand_importance</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of features with greater than random column importance </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">important_cols</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">importances</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;feature importance&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">important_cols</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">app_df_reduced</span> <span class="o">=</span> <span class="n">FeatureSelector</span><span class="p">(</span><span class="n">app_df_proc</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">id_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">],</span> <span class="n">rand_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rand_object&#39;</span><span class="p">,</span> <span class="s1">&#39;rand_number&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">select_important_features</span><span class="p">()</span>
+<span class="n">inspect_df</span><span class="p">(</span><span class="n">app_df_reduced</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model score with full feature set 0.6591742195367573
+Number of features with greater than random column importance 9
+Model score with reduced feature set 0.655730110775428
+df shape: (49650, 10)
+_____________________
+datatypes: float32    9
+int64      1
+dtype: int64
+_____________________
+Num null vals: 0
+_____________________
+_____________________
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_CURR</th>
+      <th>AMT_ANNUITY</th>
+      <th>DAYS_BIRTH</th>
+      <th>DAYS_EMPLOYED</th>
+      <th>DAYS_REGISTRATION</th>
+      <th>DAYS_ID_PUBLISH</th>
+      <th>EXT_SOURCE_1</th>
+      <th>EXT_SOURCE_2</th>
+      <th>EXT_SOURCE_3</th>
+      <th>DAYS_LAST_PHONE_CHANGE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100002</td>
+      <td>24700.5</td>
+      <td>-9461.0</td>
+      <td>-637.0</td>
+      <td>-3648.0</td>
+      <td>-2120.0</td>
+      <td>0.083037</td>
+      <td>0.262949</td>
+      <td>0.139376</td>
+      <td>-1134.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>100010</td>
+      <td>42075.0</td>
+      <td>-18850.0</td>
+      <td>-449.0</td>
+      <td>-4597.0</td>
+      <td>-2379.0</td>
+      <td>0.000000</td>
+      <td>0.714279</td>
+      <td>0.540654</td>
+      <td>-1070.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>100017</td>
+      <td>28966.5</td>
+      <td>-14086.0</td>
+      <td>-3028.0</td>
+      <td>-643.0</td>
+      <td>-4911.0</td>
+      <td>0.000000</td>
+      <td>0.566907</td>
+      <td>0.770087</td>
+      <td>-4.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>100021</td>
+      <td>13500.0</td>
+      <td>-9776.0</td>
+      <td>-191.0</td>
+      <td>-4143.0</td>
+      <td>-2427.0</td>
+      <td>0.000000</td>
+      <td>0.683513</td>
+      <td>0.000000</td>
+      <td>-2811.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>100030</td>
+      <td>11074.5</td>
+      <td>-19334.0</td>
+      <td>-3494.0</td>
+      <td>-2419.0</td>
+      <td>-2893.0</td>
+      <td>0.561948</td>
+      <td>0.651406</td>
+      <td>0.461482</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+" />
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Neat! We reduced number of features from 122 down to 9 (not counting ID), while model score changed only slightly.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Bureau-data">Bureau data<a class="anchor-link" href="#Bureau-data"> </a></h1><p>Will need to perform downsampling and preprocessing for other dataframes involved as well. The key is to select only rows that link main dataframe on SK_ID_CURR column.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sample_from_parent_df</span><span class="p">(</span><span class="n">parent_df</span><span class="p">,</span> <span class="n">id_col</span><span class="p">,</span> <span class="n">child_df</span><span class="p">):</span>
+    <span class="n">sample_ids</span> <span class="o">=</span> <span class="n">parent_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">id_col</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>
+    <span class="n">child_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">child_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">id_col</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sample_ids</span><span class="p">)])</span>
+                <span class="o">.</span><span class="n">reset_index</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Num ids in parent df: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_ids</span><span class="p">)</span><span class="si">}</span><span class="s1">, &#39;</span>
+          <span class="sa">f</span><span class="s1">&#39;num ids in child df: </span><span class="si">{</span><span class="n">child_df</span><span class="p">[</span><span class="n">id_col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">child_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bureau_df</span> <span class="o">=</span> <span class="n">sample_from_parent_df</span><span class="p">(</span><span class="n">parent_df</span><span class="o">=</span><span class="n">app_df_reduced</span><span class="p">,</span> <span class="n">id_col</span><span class="o">=</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">,</span> 
+                                  <span class="n">child_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../input/home-credit-default-risk/bureau.csv&#39;</span><span class="p">))</span>
+<span class="n">inspect_df</span><span class="p">(</span><span class="n">bureau_df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Num ids in parent df: 49650, num ids in child df: 41689
+df shape: (232611, 17)
+_____________________
+datatypes: float64    8
+int64      6
+object     3
+dtype: int64
+_____________________
+Num null vals: 549613
+_____________________
+_____________________
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_CURR</th>
+      <th>SK_ID_BUREAU</th>
+      <th>CREDIT_ACTIVE</th>
+      <th>CREDIT_CURRENCY</th>
+      <th>DAYS_CREDIT</th>
+      <th>CREDIT_DAY_OVERDUE</th>
+      <th>DAYS_CREDIT_ENDDATE</th>
+      <th>DAYS_ENDDATE_FACT</th>
+      <th>AMT_CREDIT_MAX_OVERDUE</th>
+      <th>CNT_CREDIT_PROLONG</th>
+      <th>AMT_CREDIT_SUM</th>
+      <th>AMT_CREDIT_SUM_DEBT</th>
+      <th>AMT_CREDIT_SUM_LIMIT</th>
+      <th>AMT_CREDIT_SUM_OVERDUE</th>
+      <th>CREDIT_TYPE</th>
+      <th>DAYS_CREDIT_UPDATE</th>
+      <th>AMT_ANNUITY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>162297</td>
+      <td>5714469</td>
+      <td>Closed</td>
+      <td>currency 1</td>
+      <td>-1896</td>
+      <td>0</td>
+      <td>-1684.0</td>
+      <td>-1710.0</td>
+      <td>14985.0</td>
+      <td>0</td>
+      <td>76878.45</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Consumer credit</td>
+      <td>-1710</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>162297</td>
+      <td>5714470</td>
+      <td>Closed</td>
+      <td>currency 1</td>
+      <td>-1146</td>
+      <td>0</td>
+      <td>-811.0</td>
+      <td>-840.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>103007.70</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Consumer credit</td>
+      <td>-840</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>162297</td>
+      <td>5714471</td>
+      <td>Active</td>
+      <td>currency 1</td>
+      <td>-1146</td>
+      <td>0</td>
+      <td>-484.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>4500.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Credit card</td>
+      <td>-690</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>162297</td>
+      <td>5714472</td>
+      <td>Active</td>
+      <td>currency 1</td>
+      <td>-1146</td>
+      <td>0</td>
+      <td>-180.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>337500.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Credit card</td>
+      <td>-690</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>162297</td>
+      <td>5714473</td>
+      <td>Closed</td>
+      <td>currency 1</td>
+      <td>-2456</td>
+      <td>0</td>
+      <td>-629.0</td>
+      <td>-825.0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>675000.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Consumer credit</td>
+      <td>-706</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since this table has higher granularity, we cannot perform feature reduction in the same way like we did with application data and it has just 17 columns anyway, also there's no need to add random features when processing.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bureau_df_proc</span> <span class="o">=</span> <span class="n">DataPreparator</span><span class="p">(</span><span class="n">id_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">,</span> <span class="s1">&#39;SK_ID_BUREAU&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">prepare_data</span><span class="p">(</span><span class="n">bureau_df</span><span class="p">)</span>
+<span class="n">inspect_df</span><span class="p">(</span><span class="n">bureau_df_proc</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>df shape: (232611, 17)
+_____________________
+datatypes: float32    12
+int64       5
+dtype: int64
+_____________________
+Num null vals: 0
+_____________________
+_____________________
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_CURR</th>
+      <th>SK_ID_BUREAU</th>
+      <th>CREDIT_ACTIVE</th>
+      <th>CREDIT_CURRENCY</th>
+      <th>CREDIT_TYPE</th>
+      <th>DAYS_CREDIT</th>
+      <th>CREDIT_DAY_OVERDUE</th>
+      <th>DAYS_CREDIT_ENDDATE</th>
+      <th>DAYS_ENDDATE_FACT</th>
+      <th>AMT_CREDIT_MAX_OVERDUE</th>
+      <th>CNT_CREDIT_PROLONG</th>
+      <th>AMT_CREDIT_SUM</th>
+      <th>AMT_CREDIT_SUM_DEBT</th>
+      <th>AMT_CREDIT_SUM_LIMIT</th>
+      <th>AMT_CREDIT_SUM_OVERDUE</th>
+      <th>DAYS_CREDIT_UPDATE</th>
+      <th>AMT_ANNUITY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>162297</td>
+      <td>5714469</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-1896.0</td>
+      <td>0.0</td>
+      <td>-1684.0</td>
+      <td>-1710.0</td>
+      <td>14985.0</td>
+      <td>0.0</td>
+      <td>76878.453125</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-1710.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>162297</td>
+      <td>5714470</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-1146.0</td>
+      <td>0.0</td>
+      <td>-811.0</td>
+      <td>-840.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>103007.703125</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-840.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>162297</td>
+      <td>5714471</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>-1146.0</td>
+      <td>0.0</td>
+      <td>-484.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4500.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-690.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>162297</td>
+      <td>5714472</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>-1146.0</td>
+      <td>0.0</td>
+      <td>-180.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>337500.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-690.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>162297</td>
+      <td>5714473</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-2456.0</td>
+      <td>0.0</td>
+      <td>-629.0</td>
+      <td>-825.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>675000.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-706.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bureau-balance-data">Bureau balance data<a class="anchor-link" href="#Bureau-balance-data"> </a></h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bureau_bal_df</span> <span class="o">=</span> <span class="n">sample_from_parent_df</span><span class="p">(</span><span class="n">parent_df</span><span class="o">=</span><span class="n">bureau_df_proc</span><span class="p">,</span> <span class="n">id_col</span><span class="o">=</span><span class="s1">&#39;SK_ID_BUREAU&#39;</span><span class="p">,</span> 
+                                      <span class="n">child_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../input/home-credit-default-risk/bureau_balance.csv&#39;</span><span class="p">))</span>
+<span class="n">inspect_df</span><span class="p">(</span><span class="n">bureau_bal_df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Num ids in parent df: 232611, num ids in child df: 85663
+df shape: (2224269, 3)
+_____________________
+datatypes: int64     2
+object    1
+dtype: int64
+_____________________
+Num null vals: 0
+_____________________
+_____________________
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_BUREAU</th>
+      <th>MONTHS_BALANCE</th>
+      <th>STATUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5715565</td>
+      <td>0</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5715565</td>
+      <td>-1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5715565</td>
+      <td>-2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5715565</td>
+      <td>-3</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5715565</td>
+      <td>-4</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bureau_bal_df_proc</span> <span class="o">=</span> <span class="n">DataPreparator</span><span class="p">(</span><span class="n">id_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SK_ID_BUREAU&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">prepare_data</span><span class="p">(</span><span class="n">bureau_bal_df</span><span class="p">)</span>
+<span class="n">inspect_df</span><span class="p">(</span><span class="n">bureau_bal_df_proc</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>df shape: (2224269, 3)
+_____________________
+datatypes: int64      2
+float32    1
+dtype: int64
+_____________________
+Num null vals: 0
+_____________________
+_____________________
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_BUREAU</th>
+      <th>STATUS</th>
+      <th>MONTHS_BALANCE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5715565</td>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5715565</td>
+      <td>1</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5715565</td>
+      <td>1</td>
+      <td>-2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5715565</td>
+      <td>0</td>
+      <td>-3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5715565</td>
+      <td>1</td>
+      <td>-4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Feature-engineering">Feature engineering<a class="anchor-link" href="#Feature-engineering"> </a></h1><p>Ok, now that data is ready, let's see what featuretools have to offer.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Create-entity-set">Create entity set<a class="anchor-link" href="#Create-entity-set"> </a></h2><p>First we need to create entity set - list all dataframes and their ids. We'll create an index for bureau balance data because it doesn't have one and it is required by featuretools.
+There's an inbuilt plotting function to check entity set before proceeding.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">es</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">EntitySet</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;credit_data&#39;</span><span class="p">)</span>
+<span class="n">es</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">entity_from_dataframe</span><span class="p">(</span><span class="n">entity_id</span><span class="o">=</span><span class="s1">&#39;applications&#39;</span><span class="p">,</span>
+                              <span class="n">dataframe</span><span class="o">=</span><span class="n">app_df_reduced</span><span class="p">,</span>
+                              <span class="n">index</span><span class="o">=</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">)</span>
+<span class="n">es</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">entity_from_dataframe</span><span class="p">(</span><span class="n">entity_id</span><span class="o">=</span><span class="s1">&#39;bureau&#39;</span><span class="p">,</span>
+                              <span class="n">dataframe</span><span class="o">=</span><span class="n">bureau_df_proc</span><span class="p">,</span>
+                              <span class="n">index</span><span class="o">=</span><span class="s1">&#39;SK_ID_BUREAU&#39;</span><span class="p">)</span>
+<span class="n">es</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">entity_from_dataframe</span><span class="p">(</span><span class="n">entity_id</span><span class="o">=</span><span class="s1">&#39;bureau_balance&#39;</span><span class="p">,</span>
+                              <span class="n">dataframe</span><span class="o">=</span><span class="n">bureau_bal_df_proc</span><span class="p">,</span>
+                              <span class="n">index</span><span class="o">=</span><span class="s1">&#39;SK_ID_BUREAU_BAL&#39;</span><span class="p">,</span>
+                              <span class="n">make_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">es</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_svg output_subarea output_execute_result">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;
+<!-- Generated by graphviz version 2.42.3 (20191010.1750)
+ -->
+<!-- Title: credit_data Pages: 1 -->
+<svg width="779pt" height="295pt" viewBox="0.00 0.00 779.00 295.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 291)">
+<title>credit_data</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-291 775,-291 775,4 -4,4" />
+<!-- applications -->
+<g id="node1" class="node">
+<title>applications</title>
+<polygon fill="none" stroke="black" points="0,-53 0,-234 265,-234 265,-53 0,-53" />
+<text text-anchor="middle" x="132.5" y="-218.8" font-family="Times,serif" font-size="14.00">applications (49650 rows)</text>
+<polyline fill="none" stroke="black" points="0,-211 265,-211 " />
+<text text-anchor="start" x="8" y="-195.8" font-family="Times,serif" font-size="14.00">SK_ID_CURR : index</text>
+<text text-anchor="start" x="8" y="-180.8" font-family="Times,serif" font-size="14.00">AMT_ANNUITY : numeric</text>
+<text text-anchor="start" x="8" y="-165.8" font-family="Times,serif" font-size="14.00">DAYS_BIRTH : numeric</text>
+<text text-anchor="start" x="8" y="-150.8" font-family="Times,serif" font-size="14.00">DAYS_EMPLOYED : numeric</text>
+<text text-anchor="start" x="8" y="-135.8" font-family="Times,serif" font-size="14.00">DAYS_REGISTRATION : numeric</text>
+<text text-anchor="start" x="8" y="-120.8" font-family="Times,serif" font-size="14.00">DAYS_ID_PUBLISH : numeric</text>
+<text text-anchor="start" x="8" y="-105.8" font-family="Times,serif" font-size="14.00">EXT_SOURCE_1 : numeric</text>
+<text text-anchor="start" x="8" y="-90.8" font-family="Times,serif" font-size="14.00">EXT_SOURCE_2 : numeric</text>
+<text text-anchor="start" x="8" y="-75.8" font-family="Times,serif" font-size="14.00">EXT_SOURCE_3 : numeric</text>
+<text text-anchor="start" x="8" y="-60.8" font-family="Times,serif" font-size="14.00">DAYS_LAST_PHONE_CHANGE : numeric</text>
+</g>
+<!-- bureau -->
+<g id="node2" class="node">
+<title>bureau</title>
+<polygon fill="none" stroke="black" points="283,-0.5 283,-286.5 552,-286.5 552,-0.5 283,-0.5" />
+<text text-anchor="middle" x="417.5" y="-271.3" font-family="Times,serif" font-size="14.00">bureau (232611 rows)</text>
+<polyline fill="none" stroke="black" points="283,-263.5 552,-263.5 " />
+<text text-anchor="start" x="291" y="-248.3" font-family="Times,serif" font-size="14.00">SK_ID_BUREAU : index</text>
+<text text-anchor="start" x="291" y="-233.3" font-family="Times,serif" font-size="14.00">SK_ID_CURR : numeric</text>
+<text text-anchor="start" x="291" y="-218.3" font-family="Times,serif" font-size="14.00">CREDIT_ACTIVE : numeric</text>
+<text text-anchor="start" x="291" y="-203.3" font-family="Times,serif" font-size="14.00">CREDIT_CURRENCY : numeric</text>
+<text text-anchor="start" x="291" y="-188.3" font-family="Times,serif" font-size="14.00">CREDIT_TYPE : numeric</text>
+<text text-anchor="start" x="291" y="-173.3" font-family="Times,serif" font-size="14.00">DAYS_CREDIT : numeric</text>
+<text text-anchor="start" x="291" y="-158.3" font-family="Times,serif" font-size="14.00">CREDIT_DAY_OVERDUE : numeric</text>
+<text text-anchor="start" x="291" y="-143.3" font-family="Times,serif" font-size="14.00">DAYS_CREDIT_ENDDATE : numeric</text>
+<text text-anchor="start" x="291" y="-128.3" font-family="Times,serif" font-size="14.00">DAYS_ENDDATE_FACT : numeric</text>
+<text text-anchor="start" x="291" y="-113.3" font-family="Times,serif" font-size="14.00">AMT_CREDIT_MAX_OVERDUE : numeric</text>
+<text text-anchor="start" x="291" y="-98.3" font-family="Times,serif" font-size="14.00">CNT_CREDIT_PROLONG : numeric</text>
+<text text-anchor="start" x="291" y="-83.3" font-family="Times,serif" font-size="14.00">AMT_CREDIT_SUM : numeric</text>
+<text text-anchor="start" x="291" y="-68.3" font-family="Times,serif" font-size="14.00">AMT_CREDIT_SUM_DEBT : numeric</text>
+<text text-anchor="start" x="291" y="-53.3" font-family="Times,serif" font-size="14.00">AMT_CREDIT_SUM_LIMIT : numeric</text>
+<text text-anchor="start" x="291" y="-38.3" font-family="Times,serif" font-size="14.00">AMT_CREDIT_SUM_OVERDUE : numeric</text>
+<text text-anchor="start" x="291" y="-23.3" font-family="Times,serif" font-size="14.00">DAYS_CREDIT_UPDATE : numeric</text>
+<text text-anchor="start" x="291" y="-8.3" font-family="Times,serif" font-size="14.00">AMT_ANNUITY : numeric</text>
+</g>
+<!-- bureau_balance -->
+<g id="node3" class="node">
+<title>bureau_balance</title>
+<polygon fill="none" stroke="black" points="570,-98 570,-189 771,-189 771,-98 570,-98" />
+<text text-anchor="middle" x="670.5" y="-173.8" font-family="Times,serif" font-size="14.00">bureau_balance (2224269 rows)</text>
+<polyline fill="none" stroke="black" points="570,-166 771,-166 " />
+<text text-anchor="start" x="578" y="-150.8" font-family="Times,serif" font-size="14.00">SK_ID_BUREAU_BAL : index</text>
+<text text-anchor="start" x="578" y="-135.8" font-family="Times,serif" font-size="14.00">SK_ID_BUREAU : numeric</text>
+<text text-anchor="start" x="578" y="-120.8" font-family="Times,serif" font-size="14.00">STATUS : numeric</text>
+<text text-anchor="start" x="578" y="-105.8" font-family="Times,serif" font-size="14.00">MONTHS_BALANCE : numeric</text>
+</g>
+</g>
+</svg>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Create-relationships">Create relationships<a class="anchor-link" href="#Create-relationships"> </a></h2><p>Once we have our entity set, we need to establish relationships between entities (tables/dataframes).  As it was shown (see diagram in the beginning of the notebook) application data is the main table, which links to bureau data via <code>SK_ID_CURR</code> column. Each <code>SK_ID_CURR</code> can have multiple records in bureau table, which has <code>SK_ID_BUREAU</code> unique identifier that subsequently links to records in bureau_balance table.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rel_app_bureau</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">Relationship</span><span class="p">(</span><span class="n">parent_variable</span><span class="o">=</span><span class="n">es</span><span class="p">[</span><span class="s1">&#39;applications&#39;</span><span class="p">][</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">],</span> 
+                                 <span class="n">child_variable</span><span class="o">=</span><span class="n">es</span><span class="p">[</span><span class="s1">&#39;bureau&#39;</span><span class="p">][</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">])</span>
+<span class="n">rel_bureau_bal</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">Relationship</span><span class="p">(</span><span class="n">parent_variable</span><span class="o">=</span><span class="n">es</span><span class="p">[</span><span class="s1">&#39;bureau&#39;</span><span class="p">][</span><span class="s1">&#39;SK_ID_BUREAU&#39;</span><span class="p">],</span> 
+                                 <span class="n">child_variable</span><span class="o">=</span><span class="n">es</span><span class="p">[</span><span class="s1">&#39;bureau_balance&#39;</span><span class="p">][</span><span class="s1">&#39;SK_ID_BUREAU&#39;</span><span class="p">])</span>
+<span class="n">es</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">add_relationships</span><span class="p">([</span><span class="n">rel_app_bureau</span><span class="p">,</span> <span class="n">rel_bureau_bal</span><span class="p">])</span>
+<span class="n">es</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_svg output_subarea output_execute_result">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;
+<!-- Generated by graphviz version 2.42.3 (20191010.1750)
+ -->
+<!-- Title: credit_data Pages: 1 -->
+<svg width="277pt" height="641pt" viewBox="0.00 0.00 277.00 641.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 637)">
+<title>credit_data</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-637 273,-637 273,4 -4,4" />
+<!-- applications -->
+<g id="node1" class="node">
+<title>applications</title>
+<polygon fill="none" stroke="black" points="2,-0.5 2,-181.5 267,-181.5 267,-0.5 2,-0.5" />
+<text text-anchor="middle" x="134.5" y="-166.3" font-family="Times,serif" font-size="14.00">applications (49650 rows)</text>
+<polyline fill="none" stroke="black" points="2,-158.5 267,-158.5 " />
+<text text-anchor="start" x="10" y="-143.3" font-family="Times,serif" font-size="14.00">SK_ID_CURR : index</text>
+<text text-anchor="start" x="10" y="-128.3" font-family="Times,serif" font-size="14.00">AMT_ANNUITY : numeric</text>
+<text text-anchor="start" x="10" y="-113.3" font-family="Times,serif" font-size="14.00">DAYS_BIRTH : numeric</text>
+<text text-anchor="start" x="10" y="-98.3" font-family="Times,serif" font-size="14.00">DAYS_EMPLOYED : numeric</text>
+<text text-anchor="start" x="10" y="-83.3" font-family="Times,serif" font-size="14.00">DAYS_REGISTRATION : numeric</text>
+<text text-anchor="start" x="10" y="-68.3" font-family="Times,serif" font-size="14.00">DAYS_ID_PUBLISH : numeric</text>
+<text text-anchor="start" x="10" y="-53.3" font-family="Times,serif" font-size="14.00">EXT_SOURCE_1 : numeric</text>
+<text text-anchor="start" x="10" y="-38.3" font-family="Times,serif" font-size="14.00">EXT_SOURCE_2 : numeric</text>
+<text text-anchor="start" x="10" y="-23.3" font-family="Times,serif" font-size="14.00">EXT_SOURCE_3 : numeric</text>
+<text text-anchor="start" x="10" y="-8.3" font-family="Times,serif" font-size="14.00">DAYS_LAST_PHONE_CHANGE : numeric</text>
+</g>
+<!-- bureau -->
+<g id="node2" class="node">
+<title>bureau</title>
+<polygon fill="none" stroke="black" points="0,-218.5 0,-504.5 269,-504.5 269,-218.5 0,-218.5" />
+<text text-anchor="middle" x="134.5" y="-489.3" font-family="Times,serif" font-size="14.00">bureau (232611 rows)</text>
+<polyline fill="none" stroke="black" points="0,-481.5 269,-481.5 " />
+<text text-anchor="start" x="8" y="-466.3" font-family="Times,serif" font-size="14.00">SK_ID_BUREAU : index</text>
+<text text-anchor="start" x="8" y="-451.3" font-family="Times,serif" font-size="14.00">SK_ID_CURR : id</text>
+<text text-anchor="start" x="8" y="-436.3" font-family="Times,serif" font-size="14.00">CREDIT_ACTIVE : numeric</text>
+<text text-anchor="start" x="8" y="-421.3" font-family="Times,serif" font-size="14.00">CREDIT_CURRENCY : numeric</text>
+<text text-anchor="start" x="8" y="-406.3" font-family="Times,serif" font-size="14.00">CREDIT_TYPE : numeric</text>
+<text text-anchor="start" x="8" y="-391.3" font-family="Times,serif" font-size="14.00">DAYS_CREDIT : numeric</text>
+<text text-anchor="start" x="8" y="-376.3" font-family="Times,serif" font-size="14.00">CREDIT_DAY_OVERDUE : numeric</text>
+<text text-anchor="start" x="8" y="-361.3" font-family="Times,serif" font-size="14.00">DAYS_CREDIT_ENDDATE : numeric</text>
+<text text-anchor="start" x="8" y="-346.3" font-family="Times,serif" font-size="14.00">DAYS_ENDDATE_FACT : numeric</text>
+<text text-anchor="start" x="8" y="-331.3" font-family="Times,serif" font-size="14.00">AMT_CREDIT_MAX_OVERDUE : numeric</text>
+<text text-anchor="start" x="8" y="-316.3" font-family="Times,serif" font-size="14.00">CNT_CREDIT_PROLONG : numeric</text>
+<text text-anchor="start" x="8" y="-301.3" font-family="Times,serif" font-size="14.00">AMT_CREDIT_SUM : numeric</text>
+<text text-anchor="start" x="8" y="-286.3" font-family="Times,serif" font-size="14.00">AMT_CREDIT_SUM_DEBT : numeric</text>
+<text text-anchor="start" x="8" y="-271.3" font-family="Times,serif" font-size="14.00">AMT_CREDIT_SUM_LIMIT : numeric</text>
+<text text-anchor="start" x="8" y="-256.3" font-family="Times,serif" font-size="14.00">AMT_CREDIT_SUM_OVERDUE : numeric</text>
+<text text-anchor="start" x="8" y="-241.3" font-family="Times,serif" font-size="14.00">DAYS_CREDIT_UPDATE : numeric</text>
+<text text-anchor="start" x="8" y="-226.3" font-family="Times,serif" font-size="14.00">AMT_ANNUITY : numeric</text>
+</g>
+<!-- bureau&#45;&gt;applications -->
+<g id="edge1" class="edge">
+<title>bureau&#45;&gt;applications</title>
+<path fill="none" stroke="black" d="M134.5,-218.33C134.5,-218.33 134.5,-191.76 134.5,-191.76" />
+<polygon fill="black" stroke="black" points="138,-191.76 134.5,-181.76 131,-191.76 138,-191.76" />
+<text text-anchor="middle" x="93.5" y="-193.84" font-family="Times,serif" font-size="14.00">SK_ID_CURR</text>
+</g>
+<!-- bureau_balance -->
+<g id="node3" class="node">
+<title>bureau_balance</title>
+<polygon fill="none" stroke="black" points="34,-541.5 34,-632.5 235,-632.5 235,-541.5 34,-541.5" />
+<text text-anchor="middle" x="134.5" y="-617.3" font-family="Times,serif" font-size="14.00">bureau_balance (2224269 rows)</text>
+<polyline fill="none" stroke="black" points="34,-609.5 235,-609.5 " />
+<text text-anchor="start" x="42" y="-594.3" font-family="Times,serif" font-size="14.00">SK_ID_BUREAU_BAL : index</text>
+<text text-anchor="start" x="42" y="-579.3" font-family="Times,serif" font-size="14.00">SK_ID_BUREAU : id</text>
+<text text-anchor="start" x="42" y="-564.3" font-family="Times,serif" font-size="14.00">STATUS : numeric</text>
+<text text-anchor="start" x="42" y="-549.3" font-family="Times,serif" font-size="14.00">MONTHS_BALANCE : numeric</text>
+</g>
+<!-- bureau_balance&#45;&gt;bureau -->
+<g id="edge2" class="edge">
+<title>bureau_balance&#45;&gt;bureau</title>
+<path fill="none" stroke="black" d="M134.5,-541.37C134.5,-541.37 134.5,-514.86 134.5,-514.86" />
+<polygon fill="black" stroke="black" points="138,-514.86 134.5,-504.86 131,-514.86 138,-514.86" />
+<text text-anchor="middle" x="84" y="-516.91" font-family="Times,serif" font-size="14.00">SK_ID_BUREAU</text>
+</g>
+</g>
+</svg>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Create-features">Create features<a class="anchor-link" href="#Create-features"> </a></h2><p>Automating feature creation is as simple as calling a on-liner with established entity set and pointing to a dataframe, where features should be added. Depending on data size, entity set complexity, chosen primitives, transforms and depth (see more on <a href="https://featuretools.alteryx.com/en/stable/getting_started/afe.html">https://featuretools.alteryx.com/en/stable/getting_started/afe.html</a>) this might take a while to run.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_mat</span><span class="p">,</span> <span class="n">feat_def</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="n">entityset</span><span class="o">=</span><span class="n">es</span><span class="p">,</span> <span class="n">target_entity</span><span class="o">=</span><span class="s1">&#39;applications&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>EntitySet scattered to 4 workers in 10 seconds
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inspect_df</span><span class="p">(</span><span class="n">feat_mat</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>df shape: (49650, 272)
+_____________________
+datatypes: float32    155
+float64    117
+dtype: int64
+_____________________
+Num null vals: 5567429
+_____________________
+_____________________
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AMT_ANNUITY</th>
+      <th>DAYS_BIRTH</th>
+      <th>DAYS_EMPLOYED</th>
+      <th>DAYS_REGISTRATION</th>
+      <th>DAYS_ID_PUBLISH</th>
+      <th>EXT_SOURCE_1</th>
+      <th>EXT_SOURCE_2</th>
+      <th>EXT_SOURCE_3</th>
+      <th>DAYS_LAST_PHONE_CHANGE</th>
+      <th>COUNT(bureau)</th>
+      <th>...</th>
+      <th>SUM(bureau_balance.bureau.AMT_CREDIT_SUM_OVERDUE)</th>
+      <th>SUM(bureau_balance.bureau.CNT_CREDIT_PROLONG)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_ACTIVE)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_CURRENCY)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_DAY_OVERDUE)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_TYPE)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_CREDIT)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_CREDIT_ENDDATE)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_CREDIT_UPDATE)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_ENDDATE_FACT)</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100002</th>
+      <td>24700.5</td>
+      <td>-9461.0</td>
+      <td>-637.0</td>
+      <td>-3648.0</td>
+      <td>-2120.0</td>
+      <td>0.083037</td>
+      <td>0.262949</td>
+      <td>0.139376</td>
+      <td>-1134.0</td>
+      <td>8.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>20.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>58.0</td>
+      <td>-109646.0</td>
+      <td>-40752.0</td>
+      <td>-69516.0</td>
+      <td>-72756.0</td>
+    </tr>
+    <tr>
+      <th>100010</th>
+      <td>42075.0</td>
+      <td>-18850.0</td>
+      <td>-449.0</td>
+      <td>-4597.0</td>
+      <td>-2379.0</td>
+      <td>0.000000</td>
+      <td>0.714279</td>
+      <td>0.540654</td>
+      <td>-1070.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>36.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>180.0</td>
+      <td>-139644.0</td>
+      <td>-8604.0</td>
+      <td>-41616.0</td>
+      <td>-40968.0</td>
+    </tr>
+    <tr>
+      <th>100017</th>
+      <td>28966.5</td>
+      <td>-14086.0</td>
+      <td>-3028.0</td>
+      <td>-643.0</td>
+      <td>-4911.0</td>
+      <td>0.000000</td>
+      <td>0.566907</td>
+      <td>0.770087</td>
+      <td>-4.0</td>
+      <td>6.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100021</th>
+      <td>13500.0</td>
+      <td>-9776.0</td>
+      <td>-191.0</td>
+      <td>-4143.0</td>
+      <td>-2427.0</td>
+      <td>0.000000</td>
+      <td>0.683513</td>
+      <td>0.000000</td>
+      <td>-2811.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100030</th>
+      <td>11074.5</td>
+      <td>-19334.0</td>
+      <td>-3494.0</td>
+      <td>-2419.0</td>
+      <td>-2893.0</td>
+      <td>0.561948</td>
+      <td>0.651406</td>
+      <td>0.461482</td>
+      <td>0.0</td>
+      <td>6.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 272 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Featuretools created more than 200 features out of our entity set with default primitive and transform configurations, of course not all of them make sense or add signal, so we have to perform selection again.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Modeling">Modeling<a class="anchor-link" href="#Modeling"> </a></h1><p>Just to see if this tool added some benefit, we'll run already introduced feature selection and see if we improved the score of benchmark model.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Benchmark-model">Benchmark model<a class="anchor-link" href="#Benchmark-model"> </a></h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_mat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_CURR</th>
+      <th>AMT_ANNUITY</th>
+      <th>DAYS_BIRTH</th>
+      <th>DAYS_EMPLOYED</th>
+      <th>DAYS_REGISTRATION</th>
+      <th>DAYS_ID_PUBLISH</th>
+      <th>EXT_SOURCE_1</th>
+      <th>EXT_SOURCE_2</th>
+      <th>EXT_SOURCE_3</th>
+      <th>DAYS_LAST_PHONE_CHANGE</th>
+      <th>...</th>
+      <th>SUM(bureau_balance.bureau.AMT_CREDIT_SUM_OVERDUE)</th>
+      <th>SUM(bureau_balance.bureau.CNT_CREDIT_PROLONG)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_ACTIVE)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_CURRENCY)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_DAY_OVERDUE)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_TYPE)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_CREDIT)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_CREDIT_ENDDATE)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_CREDIT_UPDATE)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_ENDDATE_FACT)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100002</td>
+      <td>24700.5</td>
+      <td>-9461.0</td>
+      <td>-637.0</td>
+      <td>-3648.0</td>
+      <td>-2120.0</td>
+      <td>0.083037</td>
+      <td>0.262949</td>
+      <td>0.139376</td>
+      <td>-1134.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>20.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>58.0</td>
+      <td>-109646.0</td>
+      <td>-40752.0</td>
+      <td>-69516.0</td>
+      <td>-72756.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100010</td>
+      <td>42075.0</td>
+      <td>-18850.0</td>
+      <td>-449.0</td>
+      <td>-4597.0</td>
+      <td>-2379.0</td>
+      <td>0.000000</td>
+      <td>0.714279</td>
+      <td>0.540654</td>
+      <td>-1070.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>36.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>180.0</td>
+      <td>-139644.0</td>
+      <td>-8604.0</td>
+      <td>-41616.0</td>
+      <td>-40968.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>100017</td>
+      <td>28966.5</td>
+      <td>-14086.0</td>
+      <td>-3028.0</td>
+      <td>-643.0</td>
+      <td>-4911.0</td>
+      <td>0.000000</td>
+      <td>0.566907</td>
+      <td>0.770087</td>
+      <td>-4.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>100021</td>
+      <td>13500.0</td>
+      <td>-9776.0</td>
+      <td>-191.0</td>
+      <td>-4143.0</td>
+      <td>-2427.0</td>
+      <td>0.000000</td>
+      <td>0.683513</td>
+      <td>0.000000</td>
+      <td>-2811.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100030</td>
+      <td>11074.5</td>
+      <td>-19334.0</td>
+      <td>-3494.0</td>
+      <td>-2419.0</td>
+      <td>-2893.0</td>
+      <td>0.561948</td>
+      <td>0.651406</td>
+      <td>0.461482</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 273 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_mat_proc</span> <span class="o">=</span> <span class="n">DataPreparator</span><span class="p">(</span><span class="n">id_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">],</span> <span class="n">add_rand_cols</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">prepare_data</span><span class="p">(</span><span class="n">feat_mat</span><span class="o">.</span><span class="n">reset_index</span><span class="p">())</span>
+<span class="n">inspect_df</span><span class="p">(</span><span class="n">feat_mat_proc</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>df shape: (49650, 274)
+_____________________
+datatypes: float32    272
+int64        1
+float64      1
+dtype: int64
+_____________________
+Num null vals: 0
+_____________________
+_____________________
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_CURR</th>
+      <th>AMT_ANNUITY</th>
+      <th>DAYS_BIRTH</th>
+      <th>DAYS_EMPLOYED</th>
+      <th>DAYS_REGISTRATION</th>
+      <th>DAYS_ID_PUBLISH</th>
+      <th>EXT_SOURCE_1</th>
+      <th>EXT_SOURCE_2</th>
+      <th>EXT_SOURCE_3</th>
+      <th>DAYS_LAST_PHONE_CHANGE</th>
+      <th>...</th>
+      <th>SUM(bureau_balance.bureau.CNT_CREDIT_PROLONG)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_ACTIVE)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_CURRENCY)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_DAY_OVERDUE)</th>
+      <th>SUM(bureau_balance.bureau.CREDIT_TYPE)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_CREDIT)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_CREDIT_ENDDATE)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_CREDIT_UPDATE)</th>
+      <th>SUM(bureau_balance.bureau.DAYS_ENDDATE_FACT)</th>
+      <th>rand_number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100002</td>
+      <td>24700.5</td>
+      <td>-9461.0</td>
+      <td>-637.0</td>
+      <td>-3648.0</td>
+      <td>-2120.0</td>
+      <td>0.083037</td>
+      <td>0.262949</td>
+      <td>0.139376</td>
+      <td>-1134.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>20.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>58.0</td>
+      <td>-109646.0</td>
+      <td>-40752.0</td>
+      <td>-69516.0</td>
+      <td>-72756.0</td>
+      <td>0.374540</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100010</td>
+      <td>42075.0</td>
+      <td>-18850.0</td>
+      <td>-449.0</td>
+      <td>-4597.0</td>
+      <td>-2379.0</td>
+      <td>0.000000</td>
+      <td>0.714279</td>
+      <td>0.540654</td>
+      <td>-1070.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>36.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>180.0</td>
+      <td>-139644.0</td>
+      <td>-8604.0</td>
+      <td>-41616.0</td>
+      <td>-40968.0</td>
+      <td>0.950714</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>100017</td>
+      <td>28966.5</td>
+      <td>-14086.0</td>
+      <td>-3028.0</td>
+      <td>-643.0</td>
+      <td>-4911.0</td>
+      <td>0.000000</td>
+      <td>0.566907</td>
+      <td>0.770087</td>
+      <td>-4.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.731994</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>100021</td>
+      <td>13500.0</td>
+      <td>-9776.0</td>
+      <td>-191.0</td>
+      <td>-4143.0</td>
+      <td>-2427.0</td>
+      <td>0.000000</td>
+      <td>0.683513</td>
+      <td>0.000000</td>
+      <td>-2811.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.598658</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100030</td>
+      <td>11074.5</td>
+      <td>-19334.0</td>
+      <td>-3494.0</td>
+      <td>-2419.0</td>
+      <td>-2893.0</td>
+      <td>0.561948</td>
+      <td>0.651406</td>
+      <td>0.461482</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.156019</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 274 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">feat_mat_imp</span> <span class="o">=</span> <span class="n">FeatureSelector</span><span class="p">(</span><span class="n">feat_mat_proc</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">id_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">],</span> <span class="n">rand_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rand_object&#39;</span><span class="p">,</span> <span class="s1">&#39;rand_number&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">select_important_features</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model score with full feature set 0.6526888217522658
+Number of features with greater than random column importance 8
+Model score with reduced feature set 0.6556294058408862
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+" />
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion"> </a></h1><p>Added features didn't seem to improve the score pre and post selection by importance. This of course does not mean that the tool is useless, because most of the time feature engineering is just adding the same basic primitives and transforms - counts, sums, means, etc. Remember, we have not considered all tables available in the data, perhaps they contain more signal. Also, featuretools were run with default presets, which could be tinkered with, so definitely looks like something to add in the toolset, to inrease productivity, especially when building PoCs.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/projects/2020/11/06/featuretools-exploration.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/projects/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/projects/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/projects/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/projects/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/projects/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
