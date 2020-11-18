@@ -12,18 +12,20 @@ https://marloz.github.io/projects/
 _powered by [fastpages](https://github.com/fastai/fastpages)_
 
 
-## What To Do Next?
+## Backlog
 
-Great!  You have setup your repo.  Now its time to start writing content.  Some helpful links:
+### FastAI walkthroughs
+- build multiclass image classifier using transfer learning, data augmentations and other fastai tricks
+- use fastai nlp framework for some kaggle text classification problem
+- implement categorical embeddings for some tabular data problem
 
-- [Writing Blogs With Jupyter](https://github.com/fastai/fastpages#writing-blog-posts-with-jupyter)
+### AutoML
+- a post on PyCaret
+- explore custom primitives and time series structure for featuretools
 
-- [Writing Blogs With Markdown](https://github.com/fastai/fastpages#writing-blog-posts-with-markdown)
+### PyTorch
+- implement logistic regression with PyTorch (could also be random forest, bgm, kmeans or other)
 
-- [Writing Blog Posts With Word](https://github.com/fastai/fastpages#writing-blog-posts-with-microsoft-word)
-
-- [(Optional) Preview Your Blog Locally](_fastpages_docs/DEVELOPMENT.md)
-
-Note: you may want to remove example blog posts from the `_posts`,  `_notebooks` or `_word` folders (but leave them empty, don't delete these folders) if you don't want these blog posts to appear on your site.
-
-Please use the [nbdev & blogging channel](https://forums.fast.ai/c/fastai-users/nbdev/48) in the fastai forums for any questions or feature requests.
+### Unsupervised
+- use spotipy to get liked tracks and perform EDA, unsupervised learning
+- explore SVD, NMF for topic modeling
