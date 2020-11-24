@@ -22,6 +22,7 @@ _powered by [fastpages](https://github.com/fastai/fastpages)_
 ### AutoML
 - a post on PyCaret
 - explore custom primitives and time series structure for featuretools
+- hyperparameter tuning hyperopt
 
 ### PyTorch
 - implement logistic regression with PyTorch (could also be random forest, bgm, kmeans or other)
@@ -29,3 +30,6 @@ _powered by [fastpages](https://github.com/fastai/fastpages)_
 ### Unsupervised
 - use spotipy to get liked tracks and perform EDA, unsupervised learning
 - explore SVD, NMF for topic modeling
+
+### Explainability
+- feature importance, permutation importance, partial dependence, lime, shap
