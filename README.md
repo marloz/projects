@@ -30,6 +30,16 @@ _powered by [fastpages](https://github.com/fastai/fastpages)_
 ### Unsupervised
 - use spotipy to get liked tracks and perform EDA, unsupervised learning
 - explore SVD, NMF for topic modeling
+- T-SNE, density clustering, VAE
 
 ### Explainability
 - feature importance, permutation importance, partial dependence, lime, shap
+
+### Time series
+- decomposition
+- fft, arima, dtw
+- prophet
+
+### Other
+- graphs
+- web scrapping
